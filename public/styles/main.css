@@ -1,0 +1,37 @@
+
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  box-sizing: border-box;
+  
+}
+h1 {
+  color:#e0218a  !important;
+  font-family: "Titan One", cursive;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #615c62 !important;
+  font-family: Comic Sans MS; 
+}
+
+.itemInput{
+  outline: none; border:none; 
+  box-shadow: 0 2px 0 0 #f282b4;
+}
+
+.btn{
+  color: #f282b4 !important;
+}
+
+#inputContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
