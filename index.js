@@ -3,13 +3,13 @@ import bodyParser from "body-parser";
 import mongoose from 'mongoose';
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static("public"));
 
 async function main() {
-  await mongoose.connect('mongodb+srv://qg2125:Svea0124@cluster0.po4ozzu.mongodb.net/todolistDB');
+  await mongoose.connect(process.env.MONGODB_URI);
 
   const { Schema } = mongoose;
 
