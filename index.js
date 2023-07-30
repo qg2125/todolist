@@ -11,7 +11,7 @@ app.use(express.static("public"));
 async function main() {
   const connectDB = async () => {
     try {
-      const conn = await mongoose.connect(process.env.MONGODB_URI);
+      const conn = await mongoose.connect("mongodb+srv://qg2125:Svea0124@cluster0.po4ozzu.mongodb.net/todolistDB");
       console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
       console.log(error);
