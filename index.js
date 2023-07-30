@@ -3,13 +3,22 @@ import bodyParser from "body-parser";
 import mongoose from 'mongoose';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000
 
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static("public"));
 
 async function main() {
-  await mongoose.connect(process.env.MONGODB_URI);
+  const connectDB = async () => {
+    try {
+      const conn = await mongoose.connect(process.env.MONGODB_URI);
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+      console.log(error);
+      process.exit(1);
+    }
+  }
+
 
   const { Schema } = mongoose;
 
@@ -54,11 +63,17 @@ async function main() {
     res.redirect("/")
   })
 
+  connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("listening for requests");
+    })
+})
+
 }
   
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server is running on port ${port}`);
+// });
 
 main()
