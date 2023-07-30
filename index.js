@@ -50,10 +50,10 @@ async function main() {
     }
   })
 
-  app.post("/",(req, res)=>{
+  app.post("/", async(req, res)=>{
     let newContent = req.body.newItem;
     const newItem = new Item({name: newContent})
-    newItem.save();
+    await newItem.save();
     res.redirect("/")
   })
 
