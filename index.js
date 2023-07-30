@@ -1,5 +1,4 @@
 import express from "express";
-import axios from "axios";
 import bodyParser from "body-parser";
 import mongoose from 'mongoose';
 
@@ -57,7 +56,6 @@ async function main() {
 
 }
   
-
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
